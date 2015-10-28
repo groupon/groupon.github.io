@@ -6,35 +6,53 @@ $(function() {
             title: "Continuous Integration",
             projects: [
               {
-                githubURL: "githubURL",
-                title: "Project name",
-                summary: "Project summary is a little longer than the title",
-                stars: 123
+                githubURL: "https://github.com/groupon/DotCi",
+                title: "DotCi",
+                summary: "Jenkins github integration",
+                stars: 414
               },
               {
-                githubURL: "githubURL",
-                title: "Project name",
-                summary: "Project summary is a little longer than the title",
-                stars: 123
+                githubURL: "https://github.com/groupon/DotCi-Plugins-Starter-Pack",
+                title: "DotCi Plugins Starter Pack",
+                summary: "Expansion-pack for DotCi",
+                stars: 5
+              },
+            ]
+          },
+          {
+            title: "Testing",
+            projects: [
+              {
+                githubURL: "https://github.com/groupon/Selenium-Grid-Extras",
+                title: "Selenium Grid Extras",
+                summary: "SimpleSelenium Grid Nodes",
+                stars: 198
               },
               {
-                githubURL: "githubURL",
-                title: "Project name",
-                summary: "Project summary is a little longer than the title",
-                stars: 123
+                githubURL: "https://github.com/groupon/selenium-download",
+                title: "Selenium Download",
+                summary: "Allow downloading of latest selenium standalone server and chromedriver",
+                stars: 4
               },
               {
-                githubURL: "githubURL",
-                title: "Project name",
-                summary: "Project summary is a little longer than the title",
-                stars: 123
+                githubURL: "https://github.com/groupon/testium",
+                title: "Testium",
+                summary: "Integration test library for Node.js",
+                stars: 276
               },
               {
-                githubURL: "githubURL",
-                title: "Project name",
-                summary: "Project summary is a little longer than the title",
-                stars: 123
-              }
+                githubURL: "https://github.com/groupon/assertive",
+                title: "Assertive",
+                summary: "Assertive is an assertion library ideally suited for coffee-script",
+                stars: 15
+              },
+              {
+                githubURL: "https://github.com/groupon/assertive-as-promised",
+                title: "Assertive as Promised",
+                summary: "Extends assertive with promise support ",
+                stars: 1
+              },
+
             ]
           }
         ]

@@ -1,7 +1,6 @@
 * Continuous Integration
 ** DotCI https://github.com/groupon/DotCi
 ** DotCi Plugins Starter Pack https://github.com/groupon/DotCi-Plugins-Starter-Pack
-** DotCi Fig Template https://github.com/groupon/DotCi-Fig-template
 
 * Testing
 ** Selenium Grid Extras https://github.com/groupon/Selenium-Grid-Extras
@@ -48,3 +47,4 @@
 ** bugwatch
 ** Mongo Deep Mapreduce https://github.com/groupon/mongo-deep-mapreduce
 ** chat
+
