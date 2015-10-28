@@ -61,6 +61,9 @@
         <script src="http://www.groupon.com/layout/assets/sls-v5.1.40-5acd37e9dd.js"></script>
         <!--<![endif]-->
         <script src="http://www.groupon.com/layout/assets/gig-v5.3.0-76b4ed9154.js"></script>
+
+    <script src="js/mustache.min.js"></script>
+    <script src="js/main.js"></script>
 </head>
 
 <body dir="ltr" id="ls-body" class="no-js prom-night ltr en_US en_XX">
@@ -243,7 +246,36 @@
             height: auto;
           }
         </style>
-        <section class="four-pack deal-pack row pad-row">
+        <script type="text/template" id="template-project-categories">
+          {{#categories}}
+            <section class="four-pack deal-pack row pad-row" id="projects">
+              <div class="section-head">
+                <h2>{{title}}</h2>
+              </div>
+              <div class="block-grid four-up">
+                {{#projects}}
+                  <figure class="deal-card">
+                    <a href="{{githubURL}}" target="_blank">
+                      <img src="https://img.grouponcdn.com/deal/4uVjBhsJPen1vgKt6T4V/76-940x570/v1/c700x420.jpg" alt="{{title}}">
+                      <figcaption>
+                        <p class="deal-title">{{title}}</p>
+                        <p class="merchant-name">
+                          {{summary}}
+                        </p>
+                        <div class="pricing">
+                          <p class="deal-price">
+                            <span class="current-price">From &#x2605;{{stars}}</span>
+                          </p>
+                        </div>
+                      </figcaption>
+                    </a>
+                  </figure>
+                {{/projects}}
+              </div>
+            </section>
+          {{/categories}}
+        </script>
+        <section class="four-pack deal-pack row pad-row" id="projects">
           <div class="section-head">
             <h2>Continuous Integration</h2>
           </div>
