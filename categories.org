@@ -1,0 +1,50 @@
+* Continuous Integration
+** DotCI https://github.com/groupon/DotCi
+** DotCi Plugins Starter Pack https://github.com/groupon/DotCi-Plugins-Starter-Pack
+** DotCi Fig Template https://github.com/groupon/DotCi-Fig-template
+
+* Testing
+** Selenium Grid Extras https://github.com/groupon/Selenium-Grid-Extras
+** Testium https://github.com/groupon/testium
+** Assertive https://github.com/groupon/assertive
+** Assertive as Promised https://github.com/groupon/assertive-as-promised
+** Odo https://github.com/groupon/odo
+** Robo Remote https://github.com/groupon/robo-remote
+** Selenium Download https://github.com/groupon/selenium-download
+** Retromock https://github.com/groupon/retromock
+** MySQL jUnit4 https://github.com/groupon/mysql-junit4
+
+* Utility
+** Webdriver HTTP Sync https://github.com/groupon/webdriver-http-sync
+** Backbeat https://github.com/groupon/backbeat_server
+** Params Deserializers https://github.com/groupon/params_deserializers
+** CSON Parser https://github.com/groupon/cson-parser
+** Jesos https://github.com/groupon/jesos
+** Gofer https://github.com/groupon/gofer
+** MySQL Slowlogd https://github.com/groupon/mysql_slowlogd
+** tdsql https://github.com/groupon/tdsql
+** Node Cached https://github.com/groupon/node-cached
+** sycl https://github.com/groupon/sycl
+** Shellot https://github.com/groupon/shellot
+** Poller https://github.com/groupon/poller
+
+
+* Misc
+** Greenscreen https://github.com/groupon/greenscreen
+** Pebble https://github.com/groupon/pebble
+** Gleemail https://github.com/groupon/gleemail
+** Roll https://github.com/groupon/roll
+
+
+* Flagged Repos
+** locality-uuid.rb
+** shared-store
+** report-card
+** Nakala
+** Novie
+** locality-uuid.java
+** check-requires
+** Message-Bus
+** bugwatch
+** Mongo Deep Mapreduce https://github.com/groupon/mongo-deep-mapreduce
+** chat
