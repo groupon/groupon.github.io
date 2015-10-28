@@ -209,26 +209,42 @@
           </section>
         </div>
 
-        <section id="megamindWatsonRecentlyViewedDeals_WatsonDealViewsWidget" class="four-pack deal-pack row pad-row mm-widget" data-bh-viewport="respect">
+        <style type="text/css">
+          .block-grid {
+            display: flex;
+            height: 296px;
+          }
+
+          .block-grid .deal-card {
+            display: flex;
+            margin: 0;
+          }
+
+          .prom-night .deal-card .deal-title {
+            height: auto;
+            padding: 12px 16px;
+          }
+
+          .four-pack .deal-card .merchant-name {
+            height: auto;
+          }
+        </style>
+        <section class="four-pack deal-pack row pad-row">
           <div class="section-head">
             <h2>Continuous Integration</h2>
           </div>
           <div class="block-grid four-up">
-            <figure class="deal-card" data-bh-viewport="respect">
-              <a href="http://www.groupon.com/deals/nascar-racing-experience-17-charleston">
-                <img src="https://img.grouponcdn.com/deal/4uVjBhsJPen1vgKt6T4V/76-940x570/v1/c700x420.jpg" alt="NASCAR Racecar Experience">
+            <figure class="deal-card">
+              <a href="{{githubURL}}" target="_blank">
+                <img src="https://img.grouponcdn.com/deal/4uVjBhsJPen1vgKt6T4V/76-940x570/v1/c700x420.jpg" alt="{{title}}">
                 <figcaption>
-                  <p class="deal-title">NASCAR Racecar Experience</p>
-                  <p class="merchant-name should-truncate">
-                    NASCAR Racing Experience
-                  </p>
-                  <p class="deal-location should-truncate">
-                    Myrtle Beach Speedway
+                  <p class="deal-title">{{title}}</p>
+                  <p class="merchant-name">
+                    {{summary}}
                   </p>
                   <div class="pricing">
                     <p class="deal-price">
-                      <s class="original-price">$129.99</s>
-                      <span class="current-price"><span class="deal-from">From</span> $64</span>
+                      <span class="current-price">★{{stars}}</span>
                     </p>
                   </div>
                 </figcaption>
