@@ -29,6 +29,12 @@ $(function() {
                 summary: "Project summary is a little longer than the title",
                 stars: 123
               },
+              {
+                githubURL: "githubURL",
+                title: "Project name",
+                summary: "Project summary is a little longer than the title",
+                stars: 123
+              }
             ]
           }
         ]
