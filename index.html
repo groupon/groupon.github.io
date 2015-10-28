@@ -138,18 +138,19 @@
       </header>
     </div>
 
+    <script type="text/template" id="template-category-list">
+      <ul>
+        {{#categories}}
+          <li><a href="#{{title}}">{{title}} <span class="counter">{{projects.length}}</span></a></li>
+        {{/categories}}
+      </ul>
+    </script>
+
     <div class="ls-resp-main">
-      <div class="homepage-content main module ">
-        <div id="variant-data" data-variants="Treatment,two-fields,treatment_smartbanner,enable,enableGDTLandingPageContent,new_top_nav_non_sticky_funnel_header,Enable,clickableLogo,ShowCategories,server,ShowIncentives"></div>
+      <div class="homepage-content main module">
         <div class="row top-row">
           <div class="three columns">
-            <div id="left-nav-categories" data-bhw="LeftNavCategories" data-bh-viewport="respect">
-              <ul>
-                <li><a href="#"><div class="category_item">Continuous Integration <span class="counter">(3)</span></div></a></li>
-		<li><a href="#"><div class="category_item">Testing <span class="counter">(9)</span></div></a></li>
-		<li><a href="#"><div class="category_item">Utility <span class="counter">(12)</span></div></a></li>
-		<li><a href="#"><div class="category_item">Miscelaneous <span class="counter">(4)</span></div></a></li>
-              </ul>
+            <div id="left-nav-categories">
             </div>
           </div>
 
@@ -247,7 +248,7 @@
             height: auto;
           }
         </style>
-        <script type="text/template" id="template-project-categories">
+        <script type="text/template" id="template-categories">
           {{#categories}}
             <section class="four-pack deal-pack row pad-row" id="projects">
               <div class="section-head">
@@ -276,8 +277,8 @@
             </section>
           {{/categories}}
         </script>
-        <section class="four-pack deal-pack row pad-row" id="projects">
-        </section>
+        <div id="categories">
+        </div>
 
         <div id="view-all-deals" class="text-center">
           <a class="button btn-secondary" href="https://github.com/groupon/">

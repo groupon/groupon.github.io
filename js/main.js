@@ -1,5 +1,6 @@
 $(function() {
-  var template = $("#template-project-categories").html(),
+  var categoriesTemplate = $("#template-categories").html(),
+      categoryListTemplate = $("#template-category-list").html(),
       json = {
         categories: [
           {
@@ -57,5 +58,6 @@ $(function() {
           }
         ]
       };
-  $("#projects").html(Mustache.render(template, json));
+  $("#categories").html(Mustache.render(categoriesTemplate, json));
+  $("#left-nav-categories").html(Mustache.render(categoryListTemplate, json));
 });
