@@ -220,6 +220,21 @@
             margin: 0;
           }
 
+          .deal-card a {
+            display: flex;
+            flex-direction: column;
+          }
+
+          .deal-card figcaption {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+          }
+
+          .deal-card .merchant-name {
+            flex-grow: 1;
+          }
+
           .prom-night .deal-card .deal-title {
             height: auto;
             padding: 12px 16px;
@@ -244,7 +259,7 @@
                   </p>
                   <div class="pricing">
                     <p class="deal-price">
-                      <span class="current-price">★{{stars}}</span>
+                      <span class="current-price">&#x2605; {{stars}}</span>
                     </p>
                   </div>
                 </figcaption>
