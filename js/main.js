@@ -4,23 +4,6 @@ $(function() {
       json = {
         categories: [
           {
-            title: "Continuous Integration",
-            projects: [
-              {
-                githubURL: "https://github.com/groupon/DotCi",
-                title: "DotCi",
-                summary: "Jenkins github integration",
-                stars: 414
-              },
-              {
-                githubURL: "https://github.com/groupon/DotCi-Plugins-Starter-Pack",
-                title: "DotCi Plugins Starter Pack",
-                summary: "Expansion-pack for DotCi",
-                stars: 5
-              },
-            ]
-          },
-          {
             title: "Testing",
             projects: [
               {
@@ -151,6 +134,23 @@ $(function() {
             ]
           },
 	  {
+            title: "Continuous Integration",
+            projects: [
+              {
+                githubURL: "https://github.com/groupon/DotCi",
+                title: "DotCi",
+                summary: "Jenkins github integration",
+                stars: 414
+              },
+              {
+                githubURL: "https://github.com/groupon/DotCi-Plugins-Starter-Pack",
+                title: "DotCi Plugins Starter Pack",
+                summary: "Expansion-pack for DotCi",
+                stars: 5
+              },
+            ]
+          },
+	  {
 	    title: "Miscelaneous",
 	    projects: [
               {
@@ -183,4 +183,5 @@ $(function() {
       };
   $("#categories").html(Mustache.render(categoriesTemplate, json));
   $("#left-nav-categories").html(Mustache.render(categoryListTemplate, json));
+  $("#").html(Mustache.render(latestTemplate, json));
 });
