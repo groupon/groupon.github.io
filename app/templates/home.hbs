@@ -20,24 +20,7 @@
     <h2 class="flush-top">Latest Projects</h2>
   </div>
 
-  <section id="megamindHeroDeal2Column_PseudoFreshWidget" class="six columns mm-widget mini-cards" data-bh-viewport="respect">
-    <figure class="deal-card hero-deal two-column-hero-deal">
-      <a href="{{reposSortedByCreatedAt.0.html_url}}" target="_blank">
-        <img src="https://img.grouponcdn.com/deal/4uVjBhsJPen1vgKt6T4V/76-940x570/v1/c700x420.jpg" alt="#">
-      </a>
-      <figcaption>
-        <a href="{{reposSortedByCreatedAt.0.html_url}}" target="_blank">
-          <div class="deal-info">
-            <h2><p class="deal-title should-truncate">{{reposSortedByCreatedAt.0.name}}</p></h2>
-            <p class="deal-price">From &#x2605;{{reposSortedByCreatedAt.0.stargazers_count}}</p>
-            <div class="view-deal">
-              <div class="btn-buy">View Project</div>
-            </div>
-          </div>
-        </a>
-      </figcaption>
-    </figure>
-  </section>
+  {{partial "partials/home-hero-repo"}}
 
   <section id="megamindVertical2DealWidget_PseudoFreshWidget"
            class="three columns mm-widget mini-cards">
@@ -82,24 +65,7 @@
       </div>
       <div class="block-grid four-up">
         {{#each category.repos as |repo|}}
-          <figure class="deal-card">
-            <a href="{{repo.html_url}}" target="_blank">
-              <div>
-                <img src="https://img.grouponcdn.com/deal/4uVjBhsJPen1vgKt6T4V/76-940x570/v1/c700x420.jpg" alt="{{repo.name}}">
-              </div>
-              <figcaption>
-                <p class="deal-title">{{repo.name}}</p>
-                <p class="merchant-name">
-                  {{repo.description}}
-                </p>
-                <div class="pricing">
-                  <p class="deal-price">
-                    <span class="current-price">From &#x2605;{{repo.stargazers_count}}</span>
-                  </p>
-                </div>
-              </figcaption>
-            </a>
-          </figure>
+          {{partial "partials/home-category-repo"}}
         {{/each}}
       </div>
     </section>
