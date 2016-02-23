@@ -31,16 +31,7 @@
 
 {{#if repos}}
   {{#each model as |category|}}
-    <section class="four-pack deal-pack row pad-row" id="{{category.name}}">
-      <div class="section-head">
-        <h2>{{category.name}}</h2>
-      </div>
-      <div class="block-grid four-up">
-        {{#each category.repos as |repo|}}
-          {{partial "partials/home-category-repo"}}
-        {{/each}}
-      </div>
-    </section>
+    {{partial "partials/home-category"}}
   {{/each}}
 {{/if}}
 
