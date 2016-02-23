@@ -24,36 +24,9 @@
 
   <section id="megamindVertical2DealWidget_PseudoFreshWidget"
            class="three columns mm-widget mini-cards">
-    <figure class="deal-card">
-      <a href="{{reposSortedByCreatedAt.1.html_url}}" target="_blank">
-        <img src="https://img.grouponcdn.com/deal/4uVjBhsJPen1vgKt6T4V/76-940x570/v1/c700x420.jpg" alt="#">
-        <figcaption>
-          <p class="deal-title should-truncate">
-            {{reposSortedByCreatedAt.1.name}}
-          </p>
-          <p class="deal-price">
-            From &#x2605;{{reposSortedByCreatedAt.1.stargazers_count}}
-          </p>
-        </figcaption>
-      </a>
-    </figure>
-  </section>
-
-  <section id="megamindVertical2DealWidget_PseudoFreshWidget"
-           class="three columns mm-widget mini-cards">
-    <figure class="deal-card">
-      <a href="{{reposSortedByCreatedAt.2.html_url}}" target="_blank">
-        <img src="https://img.grouponcdn.com/deal/4uVjBhsJPen1vgKt6T4V/76-940x570/v1/c700x420.jpg" alt="#">
-        <figcaption>
-          <p class="deal-title should-truncate">
-            {{reposSortedByCreatedAt.2.name}}
-          </p>
-          <p class="deal-price">
-            From &#x2605;{{reposSortedByCreatedAt.2.stargazers_count}}
-          </p>
-        </figcaption>
-      </a>
-    </figure>
+    {{#each (array-slice reposSortedByCreatedAt 1 3) as |repo|}}
+      {{partial "partials/home-hero-small"}}
+    {{/each}}
   </section>
 </div>
 
