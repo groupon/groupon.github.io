@@ -53,16 +53,8 @@
 
     <style>html{background: #222;}</style>
 
-    <script src="http://www.groupon.com/layout/assets/perflibLoader-v2.4.3-6d85819256.js"></script>
-    <!--[if lt IE 9]>
-        <script src="http://www.groupon.com/layout/assets/sls-ie8-v5.1.40-15b212f8eb.js"></script>
-        <![endif]-->
-    <!--[if gte IE 9]><!-->
-        <script src="http://www.groupon.com/layout/assets/sls-v5.1.40-5acd37e9dd.js"></script>
-        <!--<![endif]-->
-        <script src="http://www.groupon.com/layout/assets/gig-v5.3.0-76b4ed9154.js"></script>
-
-    <script src="js/mustache.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
     <script src="js/main.js"></script>
 </head>
 
@@ -228,7 +220,9 @@
                 {{#projects}}
                   <figure class="deal-card">
                     <a href="{{githubURL}}" target="_blank">
-                      <img src="https://img.grouponcdn.com/deal/4uVjBhsJPen1vgKt6T4V/76-940x570/v1/c700x420.jpg" alt="{{title}}">
+                      <div>
+                        <img src="https://img.grouponcdn.com/deal/4uVjBhsJPen1vgKt6T4V/76-940x570/v1/c700x420.jpg" alt="{{title}}">
+                      </div>
                       <figcaption>
                         <p class="deal-title">{{title}}</p>
                         <p class="merchant-name">
@@ -269,25 +263,5 @@
       </div>
     </footer>
   </div>
-
-  <script src="http://www.groupon.com/homepage-assets/js/locale.js?country=US&amp;locale=en_US&amp;version=018f19e38e"></script>
-  <script src="http://www.groupon.com/homepage-assets/assets/main-a806784be5.js"></script>
-
-  <iframe id="verify-cookies" height="0" width="0" frameBorder="0" data-src="https:http://ww.groupon.com/verify_cookies"></iframe>
-  <script>
-    (function(){
-    if (!(navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1)) {
-    var meta = document.createElement("meta"), ref_type =
-
-    "origin-when-crossorigin"
-
-    ;
-    meta.setAttribute("name", "referrer");
-    meta.setAttribute("type", ref_type);
-    document.getElementsByTagName("head")[0].appendChild(meta);
-    }
-    })()
-  </script>
-
 </body>
 </html>
