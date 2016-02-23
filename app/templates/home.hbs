@@ -1,0 +1,115 @@
+<div id="global-container">
+  <div class="header-v2">
+    <header class="header" data-bhw="Header" role="banner" id="ls-header">
+      <div class="row" id="ls-header-top-row">
+        <a href="/" class="four columns logo"><span class="accessibility-hidden">Groupon</span><span class="logo-engineering">Engineering</span></a>
+        <div id="ls-header-main" class="eight columns alternative-search">
+          <div class="row">
+            <div class="columns user-wrapper">
+              <nav class="user-menu signed-out">
+                <a href="https://www.groupon.com/" class="last user-menu-item">Back to Groupon</a>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav id="ls-channel-nav" role="navigation">
+        <div id="ls-primary-nav-row" class="row">
+          <ul class="primary-nav">
+            <li id="home-tab" class="primary-nav-tab">
+              <a class="icon-home iconHomeHidden" href="http://www.groupon.com/techjobs">
+                <span class="responsive-hide">Engineering Jobs</span>
+              </a>
+            </li>
+            <li class="p-nav-divider">|</li>
+            <li id="local-tab" class="primary-nav-tab">
+              <a href="http://www.github.com/groupon">GitHub</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+  </div>
+
+  <div class="ls-resp-main">
+    <div class="homepage-content main module">
+      <div class="row top-row">
+        <div class="three columns">
+          <div id="left-nav-categories">
+            <ul>
+              {{#each model as |category|}}
+                <li><a href="#{{category.name}}">{{category.name}} <span class="counter">{{category.repos.length}}</span></a></li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+
+        <div class="six columns">
+          <h2 class="flush-top">Latest Project</h2>
+        </div>
+        <section id="megamindHeroDeal2Column_PseudoFreshWidget" class="nine columns mm-widget mini-cards" data-bh-viewport="respect">
+          <figure class="deal-card hero-deal two-column-hero-deal">
+            <a href="https://github.com/groupon/params_deserializers">
+              <img src="https://img.grouponcdn.com/deal/4uVjBhsJPen1vgKt6T4V/76-940x570/v1/c700x420.jpg" alt="#">
+            </a>
+            <figcaption>
+              <a href="https://github.com/groupon/params_deserializers">
+                <div class="deal-info">
+                  <h2><p class="deal-title should-truncate" data-bhw="TitleLink">Params Deserializers</p></h2>
+                  <p class="deal-price">From &#x2605;1</p>
+                  <div class="view-deal">
+                    <div class="btn-buy" data-bhw="ViewDealButton">View Project</div>
+                  </div>
+                </div>
+              </a>
+            </figcaption>
+          </figure>
+        </section>
+      </div>
+
+      <div id="categories">
+        {{#each model as |category|}}
+          <section class="four-pack deal-pack row pad-row" id="projects">
+            <div class="section-head">
+              <h2>{{category.name}}</h2>
+            </div>
+            <div class="block-grid four-up">
+              {{#each category.repos as |repo|}}
+                <figure class="deal-card">
+                  <a href="{{repo.html_url}}" target="_blank">
+                    <div>
+                      <img src="https://img.grouponcdn.com/deal/4uVjBhsJPen1vgKt6T4V/76-940x570/v1/c700x420.jpg" alt="{{repo.name}}">
+                    </div>
+                    <figcaption>
+                      <p class="deal-title">{{repo.name}}</p>
+                      <p class="merchant-name">
+                        {{repo.description}}
+                      </p>
+                      <div class="pricing">
+                        <p class="deal-price">
+                          <span class="current-price">From &#x2605;{{repo.stargazers_count}}</span>
+                        </p>
+                      </div>
+                    </figcaption>
+                  </a>
+                </figure>
+              {{/each}}
+            </div>
+          </section>
+        {{/each}}
+      </div>
+
+      <div id="view-all-deals" class="text-center">
+        <a class="button btn-secondary" href="https://github.com/groupon/">
+          View All Projects
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer-i18n">
+    <div class="row">
+      <a href="https://engineering.groupon.com/" class="two columns logo logo-footer" target="_blank"><span class="accessibility-hidden">Groupon</span><span class="logo-engineering logo-engineering-footer">Engineering</span></a>
+    </div>
+  </footer>
+</div>

@@ -1,0 +1,82 @@
+.block-grid
+  display: flex
+  flex-wrap: wrap
+
+.block-grid .deal-card
+  display: flex
+  height: 296px
+  margin: 0
+
+.deal-card a
+  display: flex
+  flex-direction: column
+
+.deal-card figcaption
+  display: flex
+  flex-direction: column
+  flex-grow: 1
+
+.deal-card .merchant-name
+  flex-grow: 1
+  position: relative
+
+.deal-card .merchant-name:after
+  content: ""
+  text-align: right
+  position: absolute
+  bottom: 0
+  right: 0
+  width: 100%
+  height: 3em
+  background: linear-gradient(to bottom, rgba(242, 242, 242, 0), rgba(242, 242, 242, 1))
+
+.four-pack .deal-card .merchant-name
+  overflow: hidden
+
+.logo:before
+  background-image: none
+  content: '\e073'
+  color: #53a318
+  font-family: Groupon
+  font-size: 47px
+  line-height: 66px
+  vertical-align: middle
+
+.logo-engineering
+  color: #fff
+  font-family: OpenSansLight, OpenSansRegular, 'Helvetica Neue', Arial, sans-serif
+  font-size: 29px
+  left: 2px
+  line-height: 66px
+  position: relative
+  top: -1px
+  vertical-align: middle
+
+.logo-engineering-footer,
+.logo-footer:before
+  color: #bbb
+
+.logo-engineering-footer,
+.logo-footer
+  &:hover
+    text-decoration: none
+
+.main
+  background: url(/assets/images/engineering-spaceship.png) no-repeat bottom center
+  padding-bottom: 546px
+
+.primary-nav
+  justify-content: flex-start
+
+.primary-nav-tab
+  padding: 0 40px
+
+.primary-nav-tab:first-child
+  padding-left: 0
+
+.primary-nav-tab:last-child
+  padding-right: 0
+
+.prom-night .deal-card .deal-title
+  height: auto
+  padding: 12px 16px
