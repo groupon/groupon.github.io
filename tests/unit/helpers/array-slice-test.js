@@ -3,8 +3,7 @@ import { module, test } from 'qunit';
 
 module('Unit | Helper | array slice');
 
-// Replace this with your real tests.
-test('it works', function(assert) {
-  let result = arraySlice([42]);
-  assert.ok(result);
+test('it slices an array', function(assert) {
+  let result = arraySlice([[1, 2, 3], 1, 2]);
+  assert.deepEqual(result, [2]);
 });
