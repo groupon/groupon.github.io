@@ -1,1 +1,47 @@
-{{outlet}}
+<div id="global-container">
+  <div class="header-v2">
+    <header class="header" data-bhw="Header" role="banner" id="ls-header">
+      <div class="row" id="ls-header-top-row">
+        <a href="/" class="four columns logo"><span class="accessibility-hidden">Groupon</span><span class="logo-engineering">Engineering</span></a>
+        <div id="ls-header-main" class="eight columns alternative-search">
+          <div class="row">
+            <div class="columns user-wrapper">
+              <nav class="user-menu signed-out">
+                <a href="https://www.groupon.com/" class="last user-menu-item">Back to Groupon</a>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav id="ls-channel-nav" role="navigation">
+        <div id="ls-primary-nav-row" class="row">
+          <ul class="primary-nav">
+            <li id="home-tab" class="primary-nav-tab">
+              <a class="icon-home iconHomeHidden" href="http://www.groupon.com/techjobs">
+                <span class="responsive-hide">Engineering Jobs</span>
+              </a>
+            </li>
+            <li class="p-nav-divider">|</li>
+            <li id="local-tab" class="primary-nav-tab">
+              <a href="http://www.github.com/groupon">GitHub</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+  </div>
+
+  <div class="ls-resp-main">
+    <div class="homepage-content main module">
+
+      {{outlet}}
+
+    </div>
+  </div>
+
+  <footer class="footer-i18n">
+    <div class="row">
+      <a href="https://engineering.groupon.com/" class="two columns logo logo-footer" target="_blank"><span class="accessibility-hidden">Groupon</span><span class="logo-engineering logo-engineering-footer">Engineering</span></a>
+    </div>
+  </footer>
+</div>
