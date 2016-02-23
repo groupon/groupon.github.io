@@ -1,8 +1,10 @@
 var fetch = require("node-fetch"),
     fs = require("fs"),
     url = require("url"),
+    categories = require("./categories.json"),
     clientID = process.env.clientID,
     clientSecret = process.env.clientSecret,
+
     getURL = function(path) {
       var urlObject = url.parse(path, true);
 
@@ -13,26 +15,42 @@ var fetch = require("node-fetch"),
       delete urlObject.search;
 
       return url.format(urlObject);
+    },
+
+    groupByCategory = function(repos) {
+      return categories.map(function(category) {
+        return {
+          name: category.name,
+          repos: category.repos.map(function(repoName) {
+            return repos.find(function(repo) {
+              return repo.name === repoName;
+            });
+          })
+        }
+      });
     };
+
 
 fetch(getURL("/orgs/groupon/repos?type=public&per_page=100"))
   .then(function(response) {
     return response.json();
   })
   .then(function(repos) {
-    fs.writeFile("json/repos.json", JSON.stringify(repos));
     return repos;
   })
   .then(function(repos) {
-    repos.forEach(function(repo) {
-      fetch(getURL(repo.languages_url))
+    return Promise.all(repos.map(function(repo) {
+      return fetch(getURL(repo.languages_url))
         .then(function(response) {
           return response.json();
         })
         .then(function(languages) {
-          var repoLanguagesFileName = repo.full_name.replace(/\//, "-"),
-              pathToRepoLanguagesFile = "json/" + repoLanguagesFileName + ".languages.json";
-          fs.writeFile(pathToRepoLanguagesFile, JSON.stringify(languages));
+          repo.languages = languages;
+          return repo;
         });
-    });
+    }));
+  })
+  .then(function(repos) {
+    var groupedRepos = groupByCategory(repos);
+    fs.writeFile("./json/repos.json", JSON.stringify(groupedRepos));
   });

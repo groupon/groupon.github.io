@@ -1,0 +1,48 @@
+[
+  {
+    "name": "Testing",
+    "repos": [
+      "Selenium-Grid-Extras",
+      "selenium-download",
+      "testium",
+      "assertive",
+      "assertive-as-promised",
+      "odo",
+      "robo-remote",
+      "retromock",
+      "mysql-junit4"
+    ]
+  },
+  {
+    "name": "Utility",
+    "repos": [
+      "webdriver-http-sync",
+      "params_deserializers",
+      "cson-parser",
+      "jesos",
+      "gofer",
+      "mysql_slowlogd",
+      "tdsql",
+      "node-cached",
+      "sycl",
+      "shellot",
+      "poller"
+    ]
+  },
+  {
+    "name": "Continuous Integration",
+    "repos": [
+      "DotCi",
+      "DotCi-Plugins-Starter-Pack"
+    ]
+  },
+  {
+    "name": "Miscellaneous",
+    "repos": [
+      "greenscreen",
+      "pebble",
+      "gleemail",
+      "roll"
+    ]
+  }
+]
