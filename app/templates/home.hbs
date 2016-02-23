@@ -45,24 +45,59 @@
         </div>
 
         <div class="six columns">
-          <h2 class="flush-top">Latest Project</h2>
+          <h2 class="flush-top">Latest Projects</h2>
         </div>
-        <section id="megamindHeroDeal2Column_PseudoFreshWidget" class="nine columns mm-widget mini-cards" data-bh-viewport="respect">
+
+        <section id="megamindHeroDeal2Column_PseudoFreshWidget" class="six columns mm-widget mini-cards" data-bh-viewport="respect">
           <figure class="deal-card hero-deal two-column-hero-deal">
-            <a href="https://github.com/groupon/params_deserializers">
+            <a href="{{reposSortedByCreatedAt.0.html_url}}">
               <img src="https://img.grouponcdn.com/deal/4uVjBhsJPen1vgKt6T4V/76-940x570/v1/c700x420.jpg" alt="#">
             </a>
             <figcaption>
-              <a href="https://github.com/groupon/params_deserializers">
+              <a href="{{reposSortedByCreatedAt.0.html_url}}" target="_blank">
                 <div class="deal-info">
-                  <h2><p class="deal-title should-truncate" data-bhw="TitleLink">Params Deserializers</p></h2>
-                  <p class="deal-price">From &#x2605;1</p>
+                  <h2><p class="deal-title should-truncate" data-bhw="TitleLink">{{reposSortedByCreatedAt.0.name}}</p></h2>
+                  <p class="deal-price">From &#x2605;{{reposSortedByCreatedAt.0.stargazers_count}}</p>
                   <div class="view-deal">
                     <div class="btn-buy" data-bhw="ViewDealButton">View Project</div>
                   </div>
                 </div>
               </a>
             </figcaption>
+          </figure>
+        </section>
+
+        <section id="megamindVertical2DealWidget_PseudoFreshWidget"
+                 class="three columns mm-widget mini-cards">
+          <figure class="deal-card">
+            <a href="{{reposSortedByCreatedAt.1.html_url}}">
+              <img src="https://img.grouponcdn.com/deal/4uVjBhsJPen1vgKt6T4V/76-940x570/v1/c700x420.jpg" alt="#">
+              <figcaption>
+                <p class="deal-title should-truncate">
+                  {{reposSortedByCreatedAt.1.name}}
+                </p>
+                <p class="deal-price">
+                  From &#x2605;{{reposSortedByCreatedAt.1.stargazers_count}}
+                </p>
+              </figcaption>
+            </a>
+          </figure>
+        </section>
+
+        <section id="megamindVertical2DealWidget_PseudoFreshWidget"
+                 class="three columns mm-widget mini-cards">
+          <figure class="deal-card">
+            <a href="{{reposSortedByCreatedAt.2.html_url}}">
+              <img src="https://img.grouponcdn.com/deal/4uVjBhsJPen1vgKt6T4V/76-940x570/v1/c700x420.jpg" alt="#">
+              <figcaption>
+                <p class="deal-title should-truncate">
+                  {{reposSortedByCreatedAt.2.name}}
+                </p>
+                <p class="deal-price">
+                  From &#x2605;{{reposSortedByCreatedAt.2.stargazers_count}}
+                </p>
+              </figcaption>
+            </a>
           </figure>
         </section>
       </div>
