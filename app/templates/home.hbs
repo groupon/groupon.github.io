@@ -20,7 +20,10 @@
     <h2 class="flush-top">Latest Projects</h2>
   </div>
 
-  {{partial "partials/home-hero-repo"}}
+
+  {{#each (array-slice reposSortedByCreatedAt 0 1) as |repo|}}
+    {{partial "partials/home-hero-repo"}}
+  {{/each}}
 
   <section class="three columns mm-widget mini-cards">
     {{#each (array-slice reposSortedByCreatedAt 1 3) as |repo|}}
