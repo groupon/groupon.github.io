@@ -15,3 +15,10 @@ test('bytesPerLanguageAsArray is the bytesPerLanguage object as an array', funct
   component.set('bytesPerLanguage', { "JavaScript": 50, "CoffeeScript": 2 });
   assert.deepEqual(component.get('bytesPerLanguageAsArray'), expected);
 });
+
+test('totalBytes is the sum of all byte counts', function(assert) {
+  let component = this.subject();
+  component.set('bytesPerLanguage', { "JavaScript": 50, "CoffeeScript": 2 });
+
+  assert.equal(component.get('totalBytes'), 52);
+});
