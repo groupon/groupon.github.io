@@ -38,9 +38,13 @@ export default Ember.Component.extend({
     main.append('text')
         .attr('width', rectGrid.nodeSize()[0])
         .attr('height', rectGrid.nodeSize()[1])
-        .attr('transform', 'translate(6, 11)')
-        .text('A');
+        .attr('transform', 'translate(0, 11)')
+        .text((d) => { return this._getLetterForCell(d); });
   }),
+
+  _getLetterForCell(cell) {
+    return cell.language[cell.index % cell.language.length].toUpperCase();
+  },
 
   numberOfColumns: Ember.computed('element', 'cellSize', function() {
     return Math.round(Ember.$(this.get('element')).width() / this.get('estimatedCellSize'));
@@ -68,7 +72,8 @@ export default Ember.Component.extend({
         for (var i = 0; i < numberOfCellsForPercentage; i++) {
           languageCells.push({
             language: language,
-            color: colors[language]
+            color: colors[language],
+            index: i
           });
         }
       }
