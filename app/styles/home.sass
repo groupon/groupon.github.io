@@ -4,8 +4,22 @@
     .repo-graphic
       height: 132px
 
-.home-hero-repo
+.home-hero-repo > figure
+  > a:hover + figcaption
+    opacity: 0
+
+  figcaption
+    transition: opacity .35s
+
   .repo-graphic,
   .repo-graphic svg
     height: 276px
     width: 100%
+
+.three.columns.mini-cards .home-hero-repo-small.deal-card
+  > a > .repo-graphic:hover + figcaption
+    opacity: 0
+
+  figcaption
+    max-height: 200px
+    transition: opacity .35s
