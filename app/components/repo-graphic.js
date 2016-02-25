@@ -1,4 +1,3 @@
-import colors from 'groupon-git-hub/data/colors';
 /* global d3 */
 import Ember from 'ember';
 
@@ -10,8 +9,11 @@ export default Ember.Component.extend({
     return Ember.$(this.get('element')).width() / this.get('numberOfColumns');
   }),
 
-  renderGraph: Ember.observer('bytesPerLanguage', 'languageCells', 'numberOfColumns', 'numberOfRows', function() {
-    let rects = this.get('languageCells'),
+  renderGraph: Ember.observer('bytesPerLanguage',
+                              'languageCells',
+                              'numberOfColumns',
+                              'numberOfRows', function() {
+    var rects = this.get('languageCells'),
 
         rectGrid = d3.layout
                      .grid()
@@ -20,38 +22,31 @@ export default Ember.Component.extend({
                      .cols(this.get('numberOfColumns'))
                      .rows(this.get('numberOfRows')),
 
-        graph = d3.select(this.get('element')).append('svg'),
-        wrapper = graph.append('g'),
-        main = wrapper.selectAll('g').data(rectGrid(rects)),
-        percentFormatter = d3.format(',%'),
+        wrapper = d3.select(this.get('element'))
+                    .append('svg')
+                    .append('g'),
 
-        tip = d3.tip()
-                .offset([-10, 0])
-                .attr('class', 'd3-tip')
-                .html(function(d) {
-                  return `
-                    <div class="repo-graphic-tooltip"
-                         style="background:${d.color};color:${d.color}">
-                      <span class="repo-graphic-tooltip-text">
-                        ${percentFormatter(d.percentage)} ${d.language}
-                      </span>
-                    </div>
-                  `;
-                });
-
-    graph.call(tip);
+        main = wrapper.selectAll('g').data(rectGrid(rects));
 
     main.enter()
         .append('g')
-        .attr('transform', function(d) { return `translate(${d.x},${d.y})`; })
-        .on('mouseover', tip.show)
-        .on('mouseout', tip.hide);
+        .attr('transform', function(d) { return `translate(${d.x},${d.y})`; });
 
     main.append('rect')
         .attr('width', rectGrid.nodeSize()[0])
         .attr('height', rectGrid.nodeSize()[1])
-        .style('fill', function(d) { return d.color; });
+        .style('fill', function(d) { return `rgba(83, 163, 24, ${d.relativePercentage * 0.75 + 0.25})`; });
+
+    main.append('text')
+        .attr('width', rectGrid.nodeSize()[0])
+        .attr('height', rectGrid.nodeSize()[1])
+        .attr('transform', 'translate(0, 11)')
+        .text((d) => { return this._getLetterForCell(d); });
   }),
+
+  _getLetterForCell(cell) {
+    return cell.language[cell.index % cell.language.length].toUpperCase();
+  },
 
   numberOfColumns: Ember.computed('element', 'cellSize', function() {
     return Math.round(Ember.$(this.get('element')).width() / this.get('estimatedCellSize'));
@@ -65,7 +60,10 @@ export default Ember.Component.extend({
     return this.get('numberOfColumns') * this.get('numberOfRows');
   }),
 
-  languageCells: Ember.computed('bytesPerLanguage', 'totalBytes', 'numberOfCells', function() {
+  languageCells: Ember.computed('bytesPerLanguage',
+                                'totalBytes',
+                                'numberOfCells',
+                                'maximumPercentage', function() {
     var languageCells = [],
         bytesPerLanguage = this.get('bytesPerLanguage'),
         percentage,
@@ -79,14 +77,36 @@ export default Ember.Component.extend({
         for (var i = 0; i < numberOfCellsForPercentage; i++) {
           languageCells.push({
             language: language,
-            color: colors[language] || '#ededed',
-            percentage: percentage
+            index: i,
+            relativePercentage: percentage / this.get('maximumPercentage')
           });
         }
       }
     }
 
     return languageCells;
+  }),
+
+  bytesPerLanguageAsArray: Ember.computed('bytesPerLanguage', function() {
+    var bytesPerLanguageAsArray = [],
+        bytesPerLanguage = this.get('bytesPerLanguage');
+
+    for (var language in bytesPerLanguage) {
+      if (bytesPerLanguage.hasOwnProperty(language)) {
+        bytesPerLanguageAsArray.push({
+          language: language,
+          bytes: bytesPerLanguage[language]
+        });
+      }
+    }
+
+    return bytesPerLanguageAsArray;
+  }),
+
+  byteCounts: Ember.computed.mapBy('bytesPerLanguageAsArray', 'bytes'),
+  maximumBytes: Ember.computed.max('byteCounts'),
+  maximumPercentage: Ember.computed('maximumBytes', 'totalBytes', function() {
+    return this.get('maximumBytes') / this.get('totalBytes');
   }),
 
   totalBytes: Ember.computed('bytesPerLanguage', function() {

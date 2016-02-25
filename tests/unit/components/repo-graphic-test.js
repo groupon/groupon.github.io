@@ -23,3 +23,33 @@ test('totalBytes is the sum of all byte counts', function(assert) {
 
   assert.equal(component.get('totalBytes'), 52);
 });
+
+test('_getLetterForCell() gets the correct letter for a language for a given cell', function(assert) {
+  let component = this.subject(),
+      cell = { language: 'CSS' };
+
+  cell.index = 0;
+  assert.equal(component._getLetterForCell(cell), 'C');
+
+  cell.index = 1;
+  assert.equal(component._getLetterForCell(cell), 'S');
+
+  cell.index = 2;
+  assert.equal(component._getLetterForCell(cell), 'S');
+
+  cell.index = 3;
+  assert.equal(component._getLetterForCell(cell), 'C');
+});
+
+test('bytesPerLanguageAsArray is the bytesPerLanguage object as an array', function(assert) {
+   let component = this.subject();
+
+   var expected = [
+     { language: "JavaScript", bytes: 50 },
+     { language: "CoffeeScript", bytes: 2 },
+   ];
+
+   component.set('bytesPerLanguage', { JavaScript: 50, CoffeeScript: 2 });
+
+   assert.deepEqual(component.get('bytesPerLanguageAsArray'), expected);
+ });
