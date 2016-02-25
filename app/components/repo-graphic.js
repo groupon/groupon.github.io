@@ -110,8 +110,16 @@ export default Ember.Component.extend({
   },
 
   _numberOfCellsForPercentage(percentage) {
-    return Math.round(percentage * this.get('numberOfCells'));
+    var estimatedNumberOfCellsForPercentage = Math.round(percentage * this.get('numberOfCells')),
+        remainingNumberOfCells = this.get('remainingNumberOfCells'),
+        numberOfCellsForPercentage = Math.min(estimatedNumberOfCellsForPercentage, remainingNumberOfCells);
+    this.set('remainingNumberOfCells', remainingNumberOfCells - numberOfCellsForPercentage);
+    return numberOfCellsForPercentage;
   },
+
+  remainingNumberOfCells: Ember.computed('numberOfCells', function() {
+    return this.get('numberOfCells');
+  }),
 
   _cellsForLanguage(language) {
     return new Array(language.numberOfCells).fill(language);
