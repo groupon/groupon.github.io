@@ -5,10 +5,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   ajax: Ember.inject.service(),
   classNames: ['repo-graphic'],
-  estimatedCellSize: 11,
-  cellSize: Ember.computed('element', 'numberOfColumns', function() {
-    return Ember.$(this.get('element')).width() / this.get('numberOfColumns');
-  }),
+  cellSize: 11,
 
   renderGraph: Ember.observer('bytesPerLanguage', 'languageCells', 'numberOfColumns', 'numberOfRows', function() {
     let rects = this.get('languageCells'),
@@ -45,11 +42,11 @@ export default Ember.Component.extend({
   },
 
   numberOfColumns: Ember.computed('element', 'cellSize', function() {
-    return Math.round(Ember.$(this.get('element')).width() / this.get('estimatedCellSize'));
+    return Math.round(Ember.$(this.get('element')).width() / this.get('cellSize'));
   }),
 
   numberOfRows: Ember.computed('element', 'cellSize', function() {
-    return Math.round(Ember.$(this.get('element')).height() / this.get('estimatedCellSize'));
+    return Math.round(Ember.$(this.get('element')).height() / this.get('cellSize'));
   }),
 
   numberOfCells: Ember.computed('numberOfColumns', 'numberOfRows', function() {
