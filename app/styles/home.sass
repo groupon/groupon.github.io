@@ -11,13 +11,13 @@
 
   rect
     stroke: rgba(255, 255, 255, .15)
-    transition: stroke .35s
+    transition: stroke $animation-speed
 
   text
     fill: rgba(255, 255, 255, .6)
     font: 11px 'Press Start 2P'
     opacity: 0
-    transition: opacity .35s
+    transition: opacity $animation-speed
 
 .home-category-repo,
 .home-hero-repo-small
@@ -30,7 +30,7 @@
     opacity: 0
 
   figcaption
-    transition: opacity .35s
+    transition: opacity $animation-speed
 
   .repo-graphic,
   .repo-graphic svg
@@ -43,4 +43,4 @@
 
   figcaption
     max-height: 200px
-    transition: opacity .35s
+    transition: opacity $animation-speed
