@@ -8,8 +8,8 @@ test('languageCells has the correct number of cells per language', function(asse
   let component = this.subject(),
       javaScriptCells;
 
-  component.set('bytesPerLanguage', { JavaScript: 45, CoffeeScript: 5 });
   component.set('numberOfCells', 100);
+  component.set('bytesPerLanguage', { JavaScript: 45, CoffeeScript: 5 });
 
   javaScriptCells = component.get('languageCells').filter(function(cell) {
     return cell.language === 'JavaScript';
