@@ -11,7 +11,7 @@ export default Ember.Component.extend({
   }),
 
   renderGraph: Ember.observer('bytesPerLanguage', 'languageCells', 'numberOfColumns', 'numberOfRows', function() {
-    var rects = this.get('languageCells'),
+    let rects = this.get('languageCells'),
 
         rectGrid = d3.layout
                      .grid()
@@ -20,31 +20,38 @@ export default Ember.Component.extend({
                      .cols(this.get('numberOfColumns'))
                      .rows(this.get('numberOfRows')),
 
-        wrapper = d3.select(this.get('element'))
-                    .append('svg')
-                    .append('g'),
+        graph = d3.select(this.get('element')).append('svg'),
+        wrapper = graph.append('g'),
+        main = wrapper.selectAll('g').data(rectGrid(rects)),
+        percentFormatter = d3.format(',%'),
 
-        main = wrapper.selectAll('g').data(rectGrid(rects));
+        tip = d3.tip()
+                .offset([-10, 0])
+                .attr('class', 'd3-tip')
+                .html(function(d) {
+                  return `
+                    <div class="repo-graphic-tooltip"
+                         style="background:${d.color};color:${d.color}">
+                      <span class="repo-graphic-tooltip-text">
+                        ${percentFormatter(d.percentage)} ${d.language}
+                      </span>
+                    </div>
+                  `;
+                });
+
+    graph.call(tip);
 
     main.enter()
         .append('g')
-        .attr('transform', function(d) { return `translate(${d.x},${d.y})`; });
+        .attr('transform', function(d) { return `translate(${d.x},${d.y})`; })
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide);
 
     main.append('rect')
         .attr('width', rectGrid.nodeSize()[0])
         .attr('height', rectGrid.nodeSize()[1])
         .style('fill', function(d) { return d.color; });
-
-    main.append('text')
-        .attr('width', rectGrid.nodeSize()[0])
-        .attr('height', rectGrid.nodeSize()[1])
-        .attr('transform', 'translate(0, 11)')
-        .text((d) => { return this._getLetterForCell(d); });
   }),
-
-  _getLetterForCell(cell) {
-    return cell.language[cell.index % cell.language.length].toUpperCase();
-  },
 
   numberOfColumns: Ember.computed('element', 'cellSize', function() {
     return Math.round(Ember.$(this.get('element')).width() / this.get('estimatedCellSize'));
@@ -72,8 +79,8 @@ export default Ember.Component.extend({
         for (var i = 0; i < numberOfCellsForPercentage; i++) {
           languageCells.push({
             language: language,
-            color: colors[language],
-            index: i
+            color: colors[language] || '#ededed',
+            percentage: percentage
           });
         }
       }
