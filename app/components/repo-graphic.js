@@ -64,6 +64,7 @@ export default Ember.Component.extend({
       if (bytesPerLanguage.hasOwnProperty(language)) {
         percentage = bytesPerLanguage[language] / this.get('totalBytes');
         numberOfCellsForPercentage = this._numberOfCellsForPercentage(percentage);
+        this.set('remainingNumberOfCells', this.get('remainingNumberOfCells') - numberOfCellsForPercentage);
 
         for (var i = 0; i < numberOfCellsForPercentage; i++) {
           languageCells.push({
@@ -113,7 +114,6 @@ export default Ember.Component.extend({
     var estimatedNumberOfCellsForPercentage = Math.round(percentage * this.get('numberOfCells')),
         remainingNumberOfCells = this.get('remainingNumberOfCells'),
         numberOfCellsForPercentage = Math.min(estimatedNumberOfCellsForPercentage, remainingNumberOfCells);
-    this.set('remainingNumberOfCells', remainingNumberOfCells - numberOfCellsForPercentage);
     return numberOfCellsForPercentage;
   },
 
