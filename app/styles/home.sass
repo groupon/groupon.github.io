@@ -1,12 +1,25 @@
-.home-category-repo.deal-card
-  > a
-    height: 320px
-
+.home-category-repo,
+.home-hero-repo,
+.home-hero-repo-small
   rect.without-letter
     transition: stroke $animation-speed
 
-  &:hover rect.without-letter
-    stroke: rgba(255, 255, 255, .05)
+  text
+    transition: fill $animation-speed
+
+  &:hover
+    rect.without-letter
+      stroke: rgba(255, 255, 255, .05)
+
+    text.dark-background
+      fill: rgba(255, 255, 255, .7)
+
+    text.light-background
+      fill: unquote('rgba(#{$groupon-green}, .7)')
+
+.home-category-repo.deal-card
+  > a
+    height: 320px
 
 .home-category-repo
   > a

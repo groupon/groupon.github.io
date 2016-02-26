@@ -38,8 +38,8 @@ export default Ember.Component.extend({
         .attr('width', rectGrid.nodeSize()[0])
         .attr('height', rectGrid.nodeSize()[1])
         .attr('transform', 'translate(2, 10)')
-        .style('fill', function(d) {
-          return d.relativePercentage > .45 ? 'rgba(255, 255, 255, .4)' : `rgba(${grouponGreen}, .4)`;
+        .attr('class', function(d) {
+          return d.relativePercentage > 0.45 ? 'dark-background' : 'light-background';
         })
         .text((d) => { return this._getLetterForCell(d); });
   }),
