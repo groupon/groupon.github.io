@@ -8,28 +8,29 @@
   &:hover rect.without-letter
     stroke: rgba(255, 255, 255, .05)
 
-.home-category-repo,
-.home-hero-repo-small
+.home-category-repo
   > a
     .repo-graphic
       height: 132px
 
-.home-hero-repo > figure
-  > a:hover + figcaption
-    opacity: 0
+.home-hero-repo
+  > figure
+    .repo-graphic,
+    .repo-graphic svg
+      height: 199px
+      width: 100%
 
-  figcaption
-    transition: opacity $animation-speed
+  &.mini-cards .deal-card figcaption
+    position: static
 
-  .repo-graphic,
-  .repo-graphic svg
-    height: 276px
-    width: 100%
+.home-hero-repo-small
+  > a
+    .repo-graphic
+      height: 72px
+
+  .mini-cards &.deal-card figcaption
+    position: static
 
 .three.columns.mini-cards .home-hero-repo-small.deal-card
-  > a > .repo-graphic:hover + figcaption
-    opacity: 0
-
   figcaption
     max-height: 200px
-    transition: opacity $animation-speed
