@@ -2,12 +2,11 @@
   > a
     height: 320px
 
-  &:hover
-    rect
-      stroke: rgba(255, 255, 255, 0)
+  rect.without-letter
+    transition: stroke $animation-speed
 
-    text
-      opacity: 1
+  &:hover rect.without-letter
+    stroke: rgba(255, 255, 255, .05)
 
 .home-category-repo,
 .home-hero-repo-small

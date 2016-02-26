@@ -3,19 +3,8 @@
 .repo-graphic
   display: flex
 
-  &:hover
-    rect
-      stroke: rgba(255, 255, 255, 0)
-
-    text
-      opacity: 1
-
-  rect
-    stroke: rgba(255, 255, 255, .15)
-    transition: stroke $animation-speed
+  rect.without-letter
+    stroke: rgba(255, 255, 255, .1)
 
   text
-    fill: rgba(255, 255, 255, .8)
     font: 8px 'Press Start 2P'
-    opacity: 0
-    transition: opacity $animation-speed

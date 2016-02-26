@@ -42,3 +42,16 @@ test('_getLetterForCell() returns an empty string if there are no characters lef
   cell.index = 10;
   assert.equal(component._getLetterForCell(cell), '');
 });
+
+test('bytesPerLanguageAsArray is the bytesPerLanguage object as an array', function(assert) {
+  let component = this.subject();
+
+  var expected = [
+    { language: "JavaScript", bytes: 50 },
+    { language: "CoffeeScript", bytes: 2 },
+  ];
+
+  component.set('bytesPerLanguage', { JavaScript: 50, CoffeeScript: 2 });
+
+  assert.deepEqual(component.get('bytesPerLanguageAsArray'), expected);
+});
