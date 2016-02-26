@@ -21,6 +21,10 @@ module.exports = function(defaults) {
   // along with the exports of each module as its value.
   app.import('bower_components/d3/d3.js');
   app.import('bower_components/d3-grid/d3-grid.js');
+  app.import('vendor/groupon/layout/assets/gig-v5.3.0-5859695197.css')
+  app.import('vendor/groupon/layout/assets/sls-v5.1.40-d2a7103f76.css')
+  app.import('vendor/groupon/homepage-assets/assets/styles-88e66521b7.css')
+
 
   return app.toTree();
 };
