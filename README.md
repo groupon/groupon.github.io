@@ -22,6 +22,8 @@ You will need the following things properly installed on your computer.
 * `ember server`
 * Visit the app at [http://localhost:4200](http://localhost:4200).
 
+Development is done on the `develop` branch. Since this is a GitHub Pages site, `master` is reserved for serving the GitHub Pages site.
+
 ### Running Tests
 
 * `ember test`
@@ -34,7 +36,7 @@ You will need the following things properly installed on your computer.
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+groupon.github.io uses [ember-cli-github-pages](https://github.com/poetic/ember-cli-github-pages) for deployment to GitHub Pages. Deploy by running `ember github-pages:commit` from the `develop` branch, then pushing up master.
 
 ## Further Reading / Useful Links
 
