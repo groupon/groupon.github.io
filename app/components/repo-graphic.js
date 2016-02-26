@@ -1,7 +1,8 @@
 /* global d3 */
 import Ember from 'ember';
 
-var grouponGreen = '83, 163, 24';
+var grouponGreen = '83, 163, 24',
+    shades = [1, 0.8, 0.6, 0.4, 0.2];
 
 export default Ember.Component.extend({
   ajax: Ember.inject.service(),
@@ -32,20 +33,27 @@ export default Ember.Component.extend({
         .attr('class', (d) => {
           return this._getLetterForCell(d) ? 'with-letter' : 'without-letter';
         })
-        .style('fill', function(d) { return `rgba(${grouponGreen}, ${d.relativePercentage})`; });
+        .style('fill', (d) => {
+          return `rgba(${grouponGreen}, ${this._getShadeForCell(d)})`;
+        });
 
     main.append('text')
         .attr('width', rectGrid.nodeSize()[0])
         .attr('height', rectGrid.nodeSize()[1])
         .attr('transform', 'translate(2, 10)')
-        .attr('class', function(d) {
-          return d.relativePercentage > 0.45 ? 'dark-background' : 'light-background';
+        .attr('class', (d) => {
+          return this._getShadeForCell(d) > 0.45 ? 'dark-background' : 'light-background';
         })
         .text((d) => { return this._getLetterForCell(d); });
   }),
 
+  _getShadeForCell(cell) {
+    return shades[cell.languageIndexRelativeToGraph % shades.length];
+  },
+
   _getLetterForCell(cell) {
-    return cell.label[cell.index] ? cell.label[cell.index].toUpperCase() : '';
+    let label = cell.label[cell.cellIndexRelativeToLanguage];
+    return label ? label.toUpperCase() : '';
   },
 
   numberOfColumns: Ember.computed('element', 'cellSize', function() {
@@ -65,7 +73,8 @@ export default Ember.Component.extend({
         bytesPerLanguage = this.get('bytesPerLanguage'),
         percentFormatter = d3.format(',%'),
         percentage,
-        numberOfCellsForPercentage;
+        numberOfCellsForPercentage,
+        languageIndex = 0;
 
     for (var language in bytesPerLanguage) {
       if (bytesPerLanguage.hasOwnProperty(language)) {
@@ -76,11 +85,13 @@ export default Ember.Component.extend({
         for (var i = 0; i < numberOfCellsForPercentage; i++) {
           languageCells.push({
             language: language,
-            index: i,
-            relativePercentage: percentage / this.get('maximumPercentage'),
+            languageIndexRelativeToGraph: languageIndex,
+            cellIndexRelativeToLanguage: i,
             label: `${percentFormatter(percentage)} ${language}`
           });
         }
+
+        languageIndex++;
       }
     }
 

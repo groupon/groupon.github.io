@@ -28,10 +28,10 @@ test('_getLetterForCell() gets the correct letter for a given cell', function(as
   let component = this.subject(),
       cell = { label: '5% CSS' };
 
-  cell.index = 0;
+  cell.cellIndexRelativeToLanguage = 0;
   assert.equal(component._getLetterForCell(cell), '5');
 
-  cell.index = 3;
+  cell.cellIndexRelativeToLanguage = 3;
   assert.equal(component._getLetterForCell(cell), 'C');
 });
 
@@ -39,7 +39,7 @@ test('_getLetterForCell() returns an empty string if there are no characters lef
   let component = this.subject(),
       cell = { label: '5% CSS' };
 
-  cell.index = 10;
+  cell.cellIndexRelativeToLanguage = 10;
   assert.equal(component._getLetterForCell(cell), '');
 });
 
