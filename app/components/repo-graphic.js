@@ -2,7 +2,7 @@
 import Ember from 'ember';
 
 var grouponGreen = '83, 163, 24',
-    shades = [1, 0.8, 0.6, 0.4, 0.2];
+    shades = [1, 0.75, 0.5, 0.25, 0];
 
 export default Ember.Component.extend({
   ajax: Ember.inject.service(),
