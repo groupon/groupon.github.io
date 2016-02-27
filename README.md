@@ -28,7 +28,7 @@ Development is done on the `develop` branch. Since this is a GitHub Pages site, 
 
 GitHub's API is rate-limited, so the Ember app can't simply make client-side requests to GitHub or else users would quickly hit GitHub's API's rate limit. Instead, GitHub data must be fetched at build time and stored in local static JSON files.
 
-To generate these JSON files, you'll need a GitHub client ID and client secret, which can be acquired by (registering a developer application)[https://github.com/settings/developers]. Once you have a developer application, set `clientID` and `clientSecret` in your environment, then run `node script/generate-api.js`. This will save all JSON files needed for GitHub repo data into `public/api`. These files should then be committed to the repo.
+To generate these JSON files, you'll need a GitHub client ID and client secret, which can be acquired by [registering a developer application](https://github.com/settings/developers). Once you have a developer application, set `clientID` and `clientSecret` in your environment, then run `node script/generate-api.js`. This will save all JSON files needed for GitHub repo data into `public/api`. These files should then be committed to the repo.
 
 ### Repo Categories
 
