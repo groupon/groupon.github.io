@@ -30,6 +30,16 @@ GitHub's API is rate-limited, so the Ember app can't simply make client-side req
 
 To generate these JSON files, you'll need a GitHub client ID and client secret, which can be acquired by [registering a developer application](https://github.com/settings/developers). Once you have a developer application, set `clientID` and `clientSecret` in your environment, then run `node script/generate-api.js`. This will save all JSON files needed for GitHub repo data into `public/api`. These files should then be committed to the repo.
 
+#### Example
+
+```bash
+$ clientID=my-client-id clientSecret=my-client-secret node script/generate-api.js
+Writing ./public/api/repos.json
+Writing ./public/api/repos/repo1/languages.json
+Writing ./public/api/repos/repo2/languages.json
+Writing ./public/api/repos/repo3/languages.json
+```
+
 ### Repo Categories
 
 The only repos that will be displayed on groupon.github.io (other than the three "Latest Projects" at the top) will be those repos that are explicitly listed in `public/api/categories.json`. This is the only file that is generated manually, rather than by the `script/generate-api.js` script. Edit `public/api/categories.json` to modify which repos should be displayed in groupon.github.io's repo categories. Note that the names of the repos should be exactly equal to the repo names on GitHub.com.
