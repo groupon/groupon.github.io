@@ -56,7 +56,7 @@ The only repos that will be displayed on groupon.github.io (other than the three
 
 ### Deploying
 
-groupon.github.io uses [ember-cli-github-pages](https://github.com/poetic/ember-cli-github-pages) for deployment to GitHub Pages. Deploy by running `ember github-pages:commit` from the `develop` branch, then pushing up master.
+groupon.github.io uses [ember-cli-github-pages](https://github.com/poetic/ember-cli-github-pages) for deployment to GitHub Pages. Deploy by running `ember github-pages:commit --branch master` from the `develop` branch, then pushing up master.
 
 ## Further Reading / Useful Links
 
